@@ -1,7 +1,7 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
-import MyConsumer from "./MyConsumer";
+import MyComponent from "./MyComponent";
 import "./App.css";
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
 
-      <MyConsumer />
+      <MyComponent />
 
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>

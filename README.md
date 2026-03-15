@@ -56,15 +56,15 @@ function MyProvider({ children }) {
   return <MyContext.Provider value={value}>{children}</MyContext.Provider>;
 }
 
-function useMyContext() {
+function useData() {
   const context = useContext(MyContext);
   if (context === undefined)
-    throw new Error("useMyContext must be used within MyProvider");
+    throw new Error("useData must be used within MyProvider");
 
   return context;
 }
 
-export { MyContext, useMyContext, MyProvider };
+export { MyContext, useData, MyProvider };
 ```
 
 ## Wrap consumers
@@ -90,10 +90,10 @@ createRoot(document.getElementById("root")).render(
 
 ```js
 import { useEffect } from "react";
-import { useMyContext } from "./MyContext";
+import { useData } from "./MyContext";
 
-export default function MyConsumer() {
-  const { data, setData } = useMyContext();
+export default function MyComponent() {
+  const { data, setData } = useData();
 
   useEffect(() => {
     setData("My data");
@@ -101,7 +101,7 @@ export default function MyConsumer() {
 
   return (
     <>
-      <h2>My Consumer</h2>
+      <h2>My Component</h2>
       <p>{data}</p>
     </>
   );
@@ -111,9 +111,9 @@ export default function MyConsumer() {
 ```js
 // src / App.jsx
 ...
-import MyConsumer from "./MyConsumer";
+import MyComponent from "./MyComponent";
 ...
-<MyConsumer />
+<MyComponent />
 ...
 ```
 
