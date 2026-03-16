@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useData } from "./MyContext";
+import { useData } from "./DataContext";
 
 export default function MyComponent() {
   const { data, setData } = useData();
